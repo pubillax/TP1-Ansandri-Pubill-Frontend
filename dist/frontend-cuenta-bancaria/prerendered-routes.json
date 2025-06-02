@@ -1,0 +1,8 @@
+{
+  "routes": {
+    "/": {},
+    "/agreggate": {},
+    "/delete": {},
+    "/modify": {}
+  }
+}
