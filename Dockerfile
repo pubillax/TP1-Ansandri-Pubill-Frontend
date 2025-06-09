@@ -1,26 +1,18 @@
-FROM node:20 AS builder
+FROM node:18-alpine AS build
 
 WORKDIR /app
-COPY . .
 
-
-RUN npm install @angular/cli
-
+COPY package*.json ./
 RUN npm install
 
-RUN chmod +x node_modules/@esbuild/linux-x64/bin/esbuild
-
-
-RUN npm run build -- --configuration=production --project=frontend-cuentaBancaria
-
+COPY . .
+RUN npm run build
 
 FROM nginx:alpine
 
-COPY --from=builder /app/dist/frontend-cuenta-bancaria/browser /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist /usr/share/nginx/html
 
-COPY env.sh /docker-entrypoint.d/env.sh
-RUN chmod +x /docker-entrypoint.d/env.sh
+EXPOSE 80
 
-EXPOSE 3000
 CMD ["nginx", "-g", "daemon off;"]
+

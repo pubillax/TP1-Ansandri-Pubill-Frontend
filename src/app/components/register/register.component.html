@@ -1,0 +1,31 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Nombre</label>
+      <input formControlName="name" />
+      
+      <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+        Nombre es obligatorio.
+      
+      </div>
+    </div>
+  
+    <div>
+      <label>Email</label>
+      <input formControlName="email" />
+      <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        Email válido es obligatorio.
+      
+      </div>
+    </div>
+    <div>
+      <label>Contraseña</label>
+      <input type="password" formControlName="password" />
+      <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+        Contraseña con mínimo 6 caracteres.
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="registerForm.invalid">Registrarse</button>
+  </form>
+  <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" style="color: green;">{{ successMessage }}</div>

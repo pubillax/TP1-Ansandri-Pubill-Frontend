@@ -1,0 +1,12 @@
+<h2>Login</h2>
+<form (ngSubmit)="login()" #loginForm="ngForm">
+  <label>Email:</label>
+  <input type="email" name="email" [(ngModel)]="email" />
+  <br />
+  <label>Contraseña:</label>
+  <input type="password" name="password" [(ngModel)]="password" />
+  <br />
+  <button type="submit">Ingresar</button>
+  <label>registrate para crear tu usuario</label>
+  <button (click)="irRegister()">Ir a registrarse</button>
+</form>
