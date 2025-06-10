@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ConectionBackService } from './conection-back.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { cuentaBancaria } from './cuentaBancaria';
+import { Usuario } from './model/usuario.model';
  
 @Component({
   selector: 'app-root',
@@ -14,18 +14,18 @@ import { cuentaBancaria } from './cuentaBancaria';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
- 
-  datosBdd: cuentaBancaria[] = [];
- 
+  title = 'frontend-Jornix'; 
+  datosBdd: Usuario[] = [];
+   
   datosFormulario = {
-    nombre: '',
-    saldo: 0,
-    activo: true
+    username: '',
+    password: '',
+    email: ''
   };
  
-  nombre: string | null = null;
-  saldo: number | null = null;
-  activo: boolean | null = null;
+  username: string | null = null;
+  password: string | null = null;
+  email: string | null = null;
   mensaje: string = '';
  
   constructor(private _router: Router, private service: ConectionBackService) {
@@ -34,14 +34,14 @@ export class AppComponent {
  
   async refresh() {
     try {
-      const v = await this.service.getCuentaBancaria();
-      console.log("Datos refrescados:", v);
-      this.datosBdd = v;
+      //const v = await this.service.getUsuarios();
+      //console.log("Datos refrescados:", v);
+      //this.datosBdd = v;
     } catch (error) {
       console.error("Error al refrescar los datos", error);
     }
   }
- 
+ /*
   async delete(id: number) {
     if (id) {
       try {
@@ -53,7 +53,8 @@ export class AppComponent {
       }
     }
   }
- 
+ */
+/*
   async enviarFormulario() {
     try {
       const response = await this.service.post(this.datosFormulario);
@@ -63,7 +64,8 @@ export class AppComponent {
       console.error('Error al enviar el formulario', error);
     }
   }
- 
+ */
+/*
   async modify(id: number) {
     try {
       const response = await this.service.put(
@@ -78,12 +80,14 @@ export class AppComponent {
       console.error('Error al modificar', error);
     }
   }
- 
+ */
+/*
   navigateToAggregate() {
     this._router.navigate(['aggregate']);
   }
  
   navigateToHome() {
     this._router.navigate(['']);
-  }
+  }  
+    */
 }
