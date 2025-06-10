@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "frontend-cuentaBancaria": {
+    "frontend-jornix": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/frontend-cuenta-bancaria",
+            "outputPath": "dist/frontend-jornix",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "frontend-cuentaBancaria:build:production"
+              "buildTarget": "frontend-jornix:build:production"
             },
             "development": {
-              "buildTarget": "frontend-cuentaBancaria:build:development"
+              "buildTarget": "frontend-jornix:build:development"
             }
           },
           "defaultConfiguration": "development"

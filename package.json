@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:frontend-cuentaBancaria": "node dist/frontend-cuenta-bancaria/server/server.mjs"
+    "serve:ssr:frontend-cuentaBancaria": "node dist/frontend-jornix/server/server.mjs"
   },
   "private": true,
   "dependencies": {
